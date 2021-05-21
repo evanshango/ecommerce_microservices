@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D298E40A-107E-4B7A-A5A8-DD9F0101FF72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{B36AC0C7-2685-426D-8922-5D8690B6A477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Catalog\Catalog.API\Catalog.API.csproj", "{10071440-A429-4706-9A89-270366709D99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{454011A9-6197-45F9-8A0F-FCC8E59BFDC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.API", "Basket\Basket.API\Basket.API.csproj", "{8F3B22E5-0C4C-448B-B840-AD988CAC05B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B36AC0C7-2685-426D-8922-5D8690B6A477} = {D298E40A-107E-4B7A-A5A8-DD9F0101FF72}
+		{10071440-A429-4706-9A89-270366709D99} = {B36AC0C7-2685-426D-8922-5D8690B6A477}
+		{454011A9-6197-45F9-8A0F-FCC8E59BFDC7} = {D298E40A-107E-4B7A-A5A8-DD9F0101FF72}
+		{8F3B22E5-0C4C-448B-B840-AD988CAC05B7} = {454011A9-6197-45F9-8A0F-FCC8E59BFDC7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10071440-A429-4706-9A89-270366709D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10071440-A429-4706-9A89-270366709D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10071440-A429-4706-9A89-270366709D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10071440-A429-4706-9A89-270366709D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F3B22E5-0C4C-448B-B840-AD988CAC05B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F3B22E5-0C4C-448B-B840-AD988CAC05B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F3B22E5-0C4C-448B-B840-AD988CAC05B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F3B22E5-0C4C-448B-B840-AD988CAC05B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

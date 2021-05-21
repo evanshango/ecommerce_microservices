@@ -1,0 +1,18 @@
+﻿version: "3"
+services:
+  catalog.api:
+    container_name: catalog.api
+    restart: always 
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=mongodb://192.168.1.100:27017"
+    ports:
+      - "8000:80" 
+  cart.api:
+    container_name: cart.api
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:Redis=redis_db:6379"
+    ports:
+    - "8001:80"
