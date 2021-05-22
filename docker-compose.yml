@@ -12,6 +12,11 @@ services:
       dockerfile: Basket/Basket.API/Dockerfile
     depends_on:
       - redis
+  discount.api:
+    image: ${DOCKER_REGISTRY-}discountapi
+    build:
+      context: .
+      dockerfile: Discount/Discount.API/Dockerfile
   redis:
     image: redis:alpine
     container_name: redis_db
@@ -32,5 +37,17 @@ services:
       - 8081:8081
     depends_on:
       - redis
+  
+  portainer:
+    image: portainer/portainer-ce:alpine
+    container_name: portainer
+    restart: always
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer-data:/data
 volumes:
   redis-data:
+  portainer-data:

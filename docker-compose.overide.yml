@@ -2,12 +2,12 @@
 services:
   catalog.api:
     container_name: catalog.api
-    restart: always 
+    restart: always
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=mongodb://192.168.1.100:27017"
+      - "DatabaseSettings:ConnectionString=mongodb://192.168.1.104:27017"
     ports:
-      - "8000:80" 
+      - "8001:80"
   cart.api:
     container_name: cart.api
     restart: always
@@ -15,4 +15,12 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:Redis=redis_db:6379"
     ports:
-    - "8001:80"
+      - "8002:80"
+  discount.api:
+    container_name: discount.api
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=Server=192.168.1.104;Port=5432;User Id=postgres;Password=3636allen;Database=discount_db;"
+    ports:
+      - "8003:80"
