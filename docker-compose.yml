@@ -1,4 +1,4 @@
-﻿version: "3"
+﻿version: "3.4"
 services:
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
@@ -17,6 +17,13 @@ services:
     build:
       context: .
       dockerfile: Discount/Discount.API/Dockerfile
+  discount.grpc:
+    image: ${DOCKER_REGISTRY-}discountgrpc
+    build:
+      context: .
+      dockerfile: Discount/Discount.Grpc/Dockerfile
+    depends_on:
+      - discount.api
   redis:
     image: redis:alpine
     container_name: redis_db

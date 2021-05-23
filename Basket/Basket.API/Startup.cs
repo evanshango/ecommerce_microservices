@@ -1,3 +1,5 @@
+using System;
+using Basket.API.GrpcServices;
 using Basket.API.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,7 +24,11 @@ namespace Basket.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ICartRepo, CartRepo>();
-            
+            services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
+                o => o.Address = new Uri(_config["GrpcSettings:DiscountUrl"])
+            );
+            services.AddScoped<DiscountGrpcService>();
+
             services.AddControllers();
 
             services.AddSingleton<IConnectionMultiplexer>(_ =>
@@ -30,7 +36,7 @@ namespace Basket.API
                 var config = ConfigurationOptions.Parse(_config.GetValue<string>("ConnectionStrings:Redis"), true);
                 return ConnectionMultiplexer.Connect(config);
             });
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Basket.API", Version = "v1"});

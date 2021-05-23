@@ -1,4 +1,6 @@
 namespace Discount.API.Entities
+#pragma warning disable 8618
+
 {
     public class Coupon 
     {
