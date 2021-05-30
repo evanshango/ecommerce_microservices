@@ -14,6 +14,7 @@ services:
       dockerfile: Basket/Basket.API/Dockerfile
     depends_on:
       - redis
+      - rabitmq
   discount.api:
     image: ${DOCKER_REGISTRY-}discountapi
     build:
@@ -33,6 +34,17 @@ services:
       dockerfile: Ordering/Ordering.API/Dockerfile
     depends_on:
       - orderdb
+      - rabitmq
+  rabitmq:
+    image: rabbitmq:management-alpine
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
+    hostname: rabbitmq   
   redis:
     image: redis:alpine
     container_name: redis_db
@@ -67,3 +79,4 @@ services:
 volumes:
   redis-data:
   portainer-data:
+  rabbitmqdata:

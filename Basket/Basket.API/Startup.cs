@@ -1,6 +1,8 @@
 using System;
 using Basket.API.GrpcServices;
+using Basket.API.Mapper;
 using Basket.API.Repositories;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,14 +22,27 @@ namespace Basket.API
             _config = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(BasketProfile));
             services.AddScoped<ICartRepo, CartRepo>();
             services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
                 o => o.Address = new Uri(_config["GrpcSettings:DiscountUrl"])
             );
             services.AddScoped<DiscountGrpcService>();
+
+            services.AddMassTransit(c =>
+            {
+                c.UsingRabbitMq((_, cfg) =>
+                {
+                    cfg.Host(_config["EventBusSettings:HostAddress"]);
+                    // cfg.UseMessageRetry(retryConfig =>
+                    // {
+                    //     retryConfig.Interval(3, TimeSpan.FromSeconds(5));
+                    // });
+                });
+            });
+            services.AddMassTransitHostedService();
 
             services.AddControllers();
 
@@ -42,8 +57,7 @@ namespace Basket.API
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Basket.API", Version = "v1"});
             });
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
