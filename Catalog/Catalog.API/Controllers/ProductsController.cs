@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace Catalog.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/products")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductRepo _repo;
@@ -51,7 +51,7 @@ namespace Catalog.API.Controllers
 
 
         // [Route("[action]/{category}", Name = "ProductsByCategory")]
-        [HttpGet("Category/{category}", Name = "ProductsByCategory")]
+        [HttpGet("category/{category}", Name = "ProductsByCategory")]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int) HttpStatusCode.OK)]
         public async Task<ActionResult<Product>> ProductsByCategory(string category)
         {

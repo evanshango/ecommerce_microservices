@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Basket.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/basket")]
     public class CartController : ControllerBase
     {
         private readonly ICartRepo _repo;

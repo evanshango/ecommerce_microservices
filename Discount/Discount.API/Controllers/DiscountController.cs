@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Discount.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/discount")]
     public class DiscountController: ControllerBase
     {
         private readonly IDiscountRepo _repo;

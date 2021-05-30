@@ -1,5 +1,13 @@
 ﻿version: "3.4"
 services:
+  orderdb:
+    container_name: orderdb
+    environment:
+      SA_PASSWORD: "aDmIn@123"
+      ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+      - "1433:1433"
   catalog.api:
     container_name: catalog.api
     restart: always
@@ -33,3 +41,11 @@ services:
       - "DatabaseSettings:ConnectionString=Server=192.168.1.104;Port=5432;User Id=postgres;Password=3636allen;Database=discount_db;"
     ports:
       - "8004:80"
+  ordering.api:
+    container_name: ordering.api
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:OrderingConnectionString=Server=orderdb;Database=orders_db;User Id=sa;Password=aDmIn@123"
+    ports:
+    - "8005:80"
