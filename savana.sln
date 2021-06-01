@@ -30,6 +30,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlokcs", "BuildingB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj", "{78EE14AB-20BC-46C9-A721-26BF6DE8A144}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{7F073F3E-12D8-4736-8612-F4B788FB717E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApiGw", "ApiGateways\OcelotApiGw\OcelotApiGw.csproj", "{869E9A74-FE9D-43C3-A483-D77514679D71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,7 @@ Global
 		{4412AD04-E69E-4439-A931-E9979F0D84FF} = {A2566297-2422-4F35-BD5A-AA72CB8F8000}
 		{4C39E7A4-235C-4F9F-A4B6-280C5F71B2AC} = {A2566297-2422-4F35-BD5A-AA72CB8F8000}
 		{78EE14AB-20BC-46C9-A721-26BF6DE8A144} = {ABE41E72-5D04-4B77-9BB7-4A35AE56FE17}
+		{869E9A74-FE9D-43C3-A483-D77514679D71} = {7F073F3E-12D8-4736-8612-F4B788FB717E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{10071440-A429-4706-9A89-270366709D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -87,5 +92,9 @@ Global
 		{78EE14AB-20BC-46C9-A721-26BF6DE8A144}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78EE14AB-20BC-46C9-A721-26BF6DE8A144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78EE14AB-20BC-46C9-A721-26BF6DE8A144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{869E9A74-FE9D-43C3-A483-D77514679D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{869E9A74-FE9D-43C3-A483-D77514679D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{869E9A74-FE9D-43C3-A483-D77514679D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{869E9A74-FE9D-43C3-A483-D77514679D71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

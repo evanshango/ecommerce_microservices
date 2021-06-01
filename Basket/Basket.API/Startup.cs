@@ -36,10 +36,6 @@ namespace Basket.API
                 c.UsingRabbitMq((_, cfg) =>
                 {
                     cfg.Host(_config["EventBusSettings:HostAddress"]);
-                    // cfg.UseMessageRetry(retryConfig =>
-                    // {
-                    //     retryConfig.Interval(3, TimeSpan.FromSeconds(5));
-                    // });
                 });
             });
             services.AddMassTransitHostedService();

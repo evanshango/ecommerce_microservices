@@ -51,3 +51,15 @@ services:
       - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     ports:
       - "8005:80"
+  ocelotapigw:
+    container_name: ocelotapigw
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - catalog.api
+      - cart.api
+      - discount.api
+      - ordering.api
+    ports:
+    - "8010:80"
